@@ -23,8 +23,8 @@ namespace AnaSayfa
         {
             ArabaBL araba = new ArabaBL();
 
-            cmbMarka.DisplayMember = "Araba_Kategori";
-            cmbMarka.ValueMember = "Araba_id";
+            cmbMarka.DisplayMember = "Kategori_adi";
+            cmbMarka.ValueMember = "Kategori_id";
             cmbMarka.DataSource = araba.AracListele(0);
             araba.Dispose();
         }
@@ -36,8 +36,8 @@ namespace AnaSayfa
             if (cmbMarka.SelectedIndex != 0)
             {
                 ArabaBL araba = new ArabaBL();
-                cmbModel.DisplayMember = "Araba_Kategori";
-                cmbModel.ValueMember = "Araba_id";
+                cmbModel.DisplayMember = "Kategori_adi";
+                cmbModel.ValueMember = "Kategori_id";
                 cmbModel.DataSource = araba.AracListele((int)cmbMarka.SelectedValue);
                 cmbModel.Enabled = true;
                 araba.Dispose();

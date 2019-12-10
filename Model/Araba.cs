@@ -8,8 +8,8 @@ namespace Model
 {
     public class Araba
     {
-        public int Araba_id { get; set; }
-        public string Araba_Kategori { get; set; }
+        public int Kategori_id { get; set; }
+        public string Kategori_adi { get; set; }
         public int Ust_Kategori_id { get; set; }
     }
 }
