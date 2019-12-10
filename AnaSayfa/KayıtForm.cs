@@ -17,10 +17,8 @@ namespace AnaSayfa
     public partial class KayıtForm : Form
     {
         Helper hlp = new Helper();
-        DataTable dt;
 
-
-        public int ozellikid = 0;
+        public int kategori_id = 0;
         
         public KayıtForm()
         {
@@ -80,30 +78,26 @@ namespace AnaSayfa
                 Ozellikler ozellikler = new Ozellikler();
                 ozellikler.Tipi = txtTipi.Text.Trim();
                 ozellikler.Cekis = txtcekis.Text.Trim();
-                ozellikler.Motor = Convert.ToInt16(txtmotor.Text.Trim());
-                ozellikler.Beygir = Convert.ToInt16(txtbeygir.Text.Trim());
-                ozellikler.Tork = Convert.ToInt16(txttork.Text.Trim());
-                ozellikler.YTüketimi = Convert.ToInt16(txttork.Text.Trim());
+                ozellikler.Motor = Convert.ToInt32(txtmotor.Text.Trim());
+                ozellikler.Beygir = Convert.ToInt32(txtbeygir.Text.Trim());
+                ozellikler.Tork = Convert.ToInt32(txttork.Text.Trim());
+                ozellikler.YTüketimi = Convert.ToInt32(txttork.Text.Trim());
                 ozellikler.YTürü = txtyturu.Text.Trim();
-                ozellikler.SonHiz = Convert.ToInt16(txtsonhız.Text.Trim());
-                ozellikler.Hizlanma = Convert.ToInt16(txthızlanma.Text.Trim());
-                ozellikler.Yili = Convert.ToInt16(txtyılı.Text.Trim());
-                ozellikler.OzellikId = ozellikid;
+                ozellikler.SonHiz = Convert.ToInt32(txtsonhız.Text.Trim());
+                ozellikler.Hizlanma = Convert.ToInt32(txthızlanma.Text.Trim());
+                ozellikler.Yili = Convert.ToInt32(txtyılı.Text.Trim());
+                ozellikler.Kategori_id = kategori_id;
 
-                if (ozellikid==0)
+                if (kategori_id==0)
                 {
                     MessageBox.Show(ozl.OzellikKaydet(ozellikler) ? "Başarılı" : "Başarısız");
                 }
             }
             catch (Exception ex )
             {
-
-                MessageBox.Show("Veritabanı hatası!" + ex);
-            }
-            catch
-            {
-                MessageBox.Show("Bir Hata Oluştu");
-            }
+                throw;
+               // MessageBox.Show("Veritabanı hatası!" + ex);
+            }            
             finally
             {
                 ozl.Dispose();
@@ -111,6 +105,12 @@ namespace AnaSayfa
 
 
 
+        }
+
+        private void KayıtForm_Load(object sender, EventArgs e)
+        {
+            OzelliklerBL ozbl = new OzelliklerBL();
+            dgw1.DataSource = ozbl.ArabaTablosu();
         }
     }
 }

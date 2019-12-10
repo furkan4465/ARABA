@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 310);
+            this.ClientSize = new System.Drawing.Size(335, 310);
             this.Controls.Add(this.btnGör);
             this.Controls.Add(this.BrnGiris);
             this.Controls.Add(this.txtSifre);

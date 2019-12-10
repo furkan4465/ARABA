@@ -8,6 +8,7 @@ namespace Model
 {
     public class Ozellikler
     {
+        public int ArabaId { get; set; }
         public string Tipi { get; set; }
         public string Cekis { get; set; }
         public int Motor { get; set; }
@@ -18,7 +19,7 @@ namespace Model
         public int SonHiz { get; set; }
         public float Hizlanma { get; set; }
         public int Yili { get; set; }
-        public int OzellikId { get; set; }
+        public int Kategori_id { get; set; }
 
     }
 }

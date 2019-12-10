@@ -53,15 +53,8 @@
             this.txthızlanma = new System.Windows.Forms.TextBox();
             this.txtyılı = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.clmTipi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCekis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmMotor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmBeygir = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTork = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmYtüketimi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmYtürü = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSonHız = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmYili = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtKategori = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgw1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,16 +161,6 @@
             // dgw1
             // 
             this.dgw1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgw1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmTipi,
-            this.clmCekis,
-            this.clmMotor,
-            this.clmBeygir,
-            this.clmTork,
-            this.clmYtüketimi,
-            this.clmYtürü,
-            this.clmSonHız,
-            this.clmYili});
             this.dgw1.Location = new System.Drawing.Point(77, 12);
             this.dgw1.Name = "dgw1";
             this.dgw1.Size = new System.Drawing.Size(711, 150);
@@ -273,56 +256,29 @@
             this.txtyılı.Size = new System.Drawing.Size(100, 20);
             this.txtyılı.TabIndex = 31;
             // 
-            // clmTipi
+            // txtKategori
             // 
-            this.clmTipi.HeaderText = "Araç Tipi";
-            this.clmTipi.Name = "clmTipi";
+            this.txtKategori.Location = new System.Drawing.Point(512, 372);
+            this.txtKategori.Name = "txtKategori";
+            this.txtKategori.Size = new System.Drawing.Size(100, 20);
+            this.txtKategori.TabIndex = 32;
             // 
-            // clmCekis
+            // label1
             // 
-            this.clmCekis.HeaderText = "Çekiş Türü";
-            this.clmCekis.Name = "clmCekis";
-            // 
-            // clmMotor
-            // 
-            this.clmMotor.HeaderText = "Motor";
-            this.clmMotor.Name = "clmMotor";
-            // 
-            // clmBeygir
-            // 
-            this.clmBeygir.HeaderText = "Beygir";
-            this.clmBeygir.Name = "clmBeygir";
-            // 
-            // clmTork
-            // 
-            this.clmTork.HeaderText = "Tork";
-            this.clmTork.Name = "clmTork";
-            // 
-            // clmYtüketimi
-            // 
-            this.clmYtüketimi.HeaderText = "Yakıt Tüketimi";
-            this.clmYtüketimi.Name = "clmYtüketimi";
-            // 
-            // clmYtürü
-            // 
-            this.clmYtürü.HeaderText = "Yakıt Türü";
-            this.clmYtürü.Name = "clmYtürü";
-            // 
-            // clmSonHız
-            // 
-            this.clmSonHız.HeaderText = "Son Hızı";
-            this.clmSonHız.Name = "clmSonHız";
-            // 
-            // clmYili
-            // 
-            this.clmYili.HeaderText = "Araç Yılı";
-            this.clmYili.Name = "clmYili";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(426, 377);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Kategori İD";
             // 
             // KayıtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtKategori);
             this.Controls.Add(this.txtyılı);
             this.Controls.Add(this.txthızlanma);
             this.Controls.Add(this.txtsonhız);
@@ -349,6 +305,7 @@
             this.Controls.Add(this.lbltipi);
             this.Name = "KayıtForm";
             this.Text = "KayıtForm";
+            this.Load += new System.EventHandler(this.KayıtForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgw1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -381,14 +338,7 @@
         private System.Windows.Forms.TextBox txthızlanma;
         private System.Windows.Forms.TextBox txtyılı;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmTipi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCekis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmMotor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmBeygir;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmTork;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmYtüketimi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmYtürü;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmSonHız;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmYili;
+        private System.Windows.Forms.TextBox txtKategori;
+        private System.Windows.Forms.Label label1;
     }
 }
