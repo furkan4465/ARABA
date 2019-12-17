@@ -40,32 +40,12 @@ namespace AnaSayfa
         
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            OzelliklerBL ozbl = new OzelliklerBL();
-            if (ozbl.Guncelle(dgw1))
-            {
-                MessageBox.Show("işlem yapıldı..");
-            }
-            else
-            {
-                MessageBox.Show("HATA SALAH");
-            }
+            
 
         }
         private void dgw1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            KayıtForm frm = (KayıtForm)Application.OpenForms["KayıtForm"];
-
-            frm.txtTipi.Text = dgw1.Rows[e.RowIndex].Cells["clmTipi"].Value.ToString();
-            frm.txtcekis.Text = dgw1.Rows[e.RowIndex].Cells["clmcekis"].Value.ToString();
-            frm.txtmotor.Text = dgw1.Rows[e.RowIndex].Cells["clmMotor"].Value.ToString();
-            frm.txtbeygir.Text = dgw1.Rows[e.RowIndex].Cells["clmBeygir"].Value.ToString();
-            frm.txttork.Text = dgw1.Rows[e.RowIndex].Cells["clmTork"].Value.ToString();
-            frm.txtytuketimi.Text = dgw1.Rows[e.RowIndex].Cells["clmYtüketimi"].Value.ToString();
-            frm.txtyturu.Text = dgw1.Rows[e.RowIndex].Cells["clmYtürü"].Value.ToString();
-            frm.txtsonhız.Text = dgw1.Rows[e.RowIndex].Cells["clmSonhiz"].Value.ToString();
-            frm.txthızlanma.Text = dgw1.Rows[e.RowIndex].Cells["clmHizlanma"].Value.ToString();
-            frm.txtyılı.Text = dgw1.Rows[e.RowIndex].Cells["clmYili"].Value.ToString();
-
+            
 
         }
 
@@ -86,14 +66,14 @@ namespace AnaSayfa
                 ozellikler.SonHiz = Convert.ToInt32(txtsonhız.Text.Trim());
                 ozellikler.Hizlanma = Convert.ToInt32(txthızlanma.Text.Trim());
                 ozellikler.Yili = Convert.ToInt32(txtyılı.Text.Trim());
-                ozellikler.Kategori_id = kategori_id;
+                ozellikler.Kategori_id =(int) cmbdonanım.SelectedValue;
 
                 if (kategori_id==0)
                 {
                     MessageBox.Show(ozl.OzellikKaydet(ozellikler) ? "Başarılı" : "Başarısız");
                 }
             }
-            catch (Exception ex )
+            catch (Exception  )
             {
                 throw;
                // MessageBox.Show("Veritabanı hatası!" + ex);
@@ -109,8 +89,49 @@ namespace AnaSayfa
 
         private void KayıtForm_Load(object sender, EventArgs e)
         {
-            OzelliklerBL ozbl = new OzelliklerBL();
-            dgw1.DataSource = ozbl.ArabaTablosu();
+            ArabaBL araba = new ArabaBL();
+
+            cmbmarka.DisplayMember = "Kategori_adi";
+            cmbmarka.ValueMember = "Kategori_id";
+            cmbmarka.DataSource = araba.AracListele(0);
+            araba.Dispose();
         }
+
+        private void cmbModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbmodel.SelectedIndex != 0 && cmbmarka.SelectedIndex != 0)
+            {
+                ArabaBL araba = new ArabaBL();
+                cmbdonanım.DisplayMember = "Kategori_adi";
+                cmbdonanım.ValueMember = "Kategori_id";
+                cmbdonanım.DataSource = araba.AracListele((int)cmbmodel.SelectedValue);
+                cmbdonanım.Enabled = true;
+                araba.Dispose();
+            }
+            else
+            {
+                cmbmodel.Enabled = false;
+                cmbdonanım.Enabled = false;
+            }
+        }
+
+        private void cmbMarka_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbmarka.SelectedIndex != 0 )
+            {
+                ArabaBL araba = new ArabaBL();
+                cmbmodel.DisplayMember = "Kategori_adi";
+                cmbmodel.ValueMember = "Kategori_id";
+                cmbmodel.DataSource = araba.AracListele((int)cmbmarka.SelectedValue);
+                cmbmodel.Enabled = true;
+                araba.Dispose();
+            }
+            else
+            {
+                cmbmodel.Enabled = false;
+            }
+        }
+
+        
     }
 }

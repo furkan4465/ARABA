@@ -53,8 +53,13 @@
             this.txthızlanma = new System.Windows.Forms.TextBox();
             this.txtyılı = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.txtKategori = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnsil = new System.Windows.Forms.Button();
+            this.cmbdonanım = new System.Windows.Forms.ComboBox();
+            this.cmbmodel = new System.Windows.Forms.ComboBox();
+            this.cmbmarka = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgw1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +111,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(220, 270);
+            this.label9.Location = new System.Drawing.Point(6, 398);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 13);
             this.label9.TabIndex = 10;
@@ -115,7 +120,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(220, 296);
+            this.label10.Location = new System.Drawing.Point(6, 424);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 13);
             this.label10.TabIndex = 11;
@@ -124,7 +129,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(220, 325);
+            this.label11.Location = new System.Drawing.Point(220, 270);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(42, 13);
             this.label11.TabIndex = 12;
@@ -133,7 +138,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(220, 351);
+            this.label12.Location = new System.Drawing.Point(220, 296);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 13);
             this.label12.TabIndex = 13;
@@ -142,7 +147,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(220, 377);
+            this.label13.Location = new System.Drawing.Point(220, 322);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(20, 13);
             this.label13.TabIndex = 14;
@@ -150,7 +155,7 @@
             // 
             // btnkaydet
             // 
-            this.btnkaydet.Location = new System.Drawing.Point(165, 415);
+            this.btnkaydet.Location = new System.Drawing.Point(455, 424);
             this.btnkaydet.Name = "btnkaydet";
             this.btnkaydet.Size = new System.Drawing.Size(75, 23);
             this.btnkaydet.TabIndex = 18;
@@ -223,62 +228,118 @@
             // 
             // txtytuketimi
             // 
-            this.txtytuketimi.Location = new System.Drawing.Point(300, 263);
+            this.txtytuketimi.Location = new System.Drawing.Point(86, 391);
             this.txtytuketimi.Name = "txtytuketimi";
             this.txtytuketimi.Size = new System.Drawing.Size(100, 20);
             this.txtytuketimi.TabIndex = 27;
             // 
             // txtyturu
             // 
-            this.txtyturu.Location = new System.Drawing.Point(300, 289);
+            this.txtyturu.Location = new System.Drawing.Point(86, 417);
             this.txtyturu.Name = "txtyturu";
             this.txtyturu.Size = new System.Drawing.Size(100, 20);
             this.txtyturu.TabIndex = 28;
             // 
             // txtsonhız
             // 
-            this.txtsonhız.Location = new System.Drawing.Point(300, 318);
+            this.txtsonhız.Location = new System.Drawing.Point(300, 263);
             this.txtsonhız.Name = "txtsonhız";
             this.txtsonhız.Size = new System.Drawing.Size(100, 20);
             this.txtsonhız.TabIndex = 29;
             // 
             // txthızlanma
             // 
-            this.txthızlanma.Location = new System.Drawing.Point(300, 344);
+            this.txthızlanma.Location = new System.Drawing.Point(300, 289);
             this.txthızlanma.Name = "txthızlanma";
             this.txthızlanma.Size = new System.Drawing.Size(100, 20);
             this.txthızlanma.TabIndex = 30;
             // 
             // txtyılı
             // 
-            this.txtyılı.Location = new System.Drawing.Point(300, 370);
+            this.txtyılı.Location = new System.Drawing.Point(300, 315);
             this.txtyılı.Name = "txtyılı";
             this.txtyılı.Size = new System.Drawing.Size(100, 20);
             this.txtyılı.TabIndex = 31;
             // 
-            // txtKategori
+            // btnsil
             // 
-            this.txtKategori.Location = new System.Drawing.Point(512, 372);
-            this.txtKategori.Name = "txtKategori";
-            this.txtKategori.Size = new System.Drawing.Size(100, 20);
-            this.txtKategori.TabIndex = 32;
+            this.btnsil.Location = new System.Drawing.Point(424, 182);
+            this.btnsil.Name = "btnsil";
+            this.btnsil.Size = new System.Drawing.Size(75, 23);
+            this.btnsil.TabIndex = 34;
+            this.btnsil.Text = "Sil";
+            this.btnsil.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // cmbdonanım
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(426, 377);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Kategori İD";
+            this.cmbdonanım.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbdonanım.Enabled = false;
+            this.cmbdonanım.FormattingEnabled = true;
+            this.cmbdonanım.Location = new System.Drawing.Point(279, 415);
+            this.cmbdonanım.Name = "cmbdonanım";
+            this.cmbdonanım.Size = new System.Drawing.Size(121, 21);
+            this.cmbdonanım.TabIndex = 40;
+            // 
+            // cmbmodel
+            // 
+            this.cmbmodel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbmodel.Enabled = false;
+            this.cmbmodel.FormattingEnabled = true;
+            this.cmbmodel.Location = new System.Drawing.Point(279, 388);
+            this.cmbmodel.Name = "cmbmodel";
+            this.cmbmodel.Size = new System.Drawing.Size(121, 21);
+            this.cmbmodel.TabIndex = 39;
+            this.cmbmodel.SelectedIndexChanged += new System.EventHandler(this.cmbModel_SelectedIndexChanged);
+            // 
+            // cmbmarka
+            // 
+            this.cmbmarka.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbmarka.FormattingEnabled = true;
+            this.cmbmarka.Location = new System.Drawing.Point(279, 355);
+            this.cmbmarka.Name = "cmbmarka";
+            this.cmbmarka.Size = new System.Drawing.Size(121, 21);
+            this.cmbmarka.TabIndex = 38;
+            this.cmbmarka.SelectedIndexChanged += new System.EventHandler(this.cmbMarka_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(221, 421);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Donanım";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(221, 388);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Model";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(221, 355);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "Marka";
             // 
             // KayıtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtKategori);
+            this.Controls.Add(this.cmbdonanım);
+            this.Controls.Add(this.cmbmodel);
+            this.Controls.Add(this.cmbmarka);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnsil);
             this.Controls.Add(this.txtyılı);
             this.Controls.Add(this.txthızlanma);
             this.Controls.Add(this.txtsonhız);
@@ -338,7 +399,12 @@
         private System.Windows.Forms.TextBox txthızlanma;
         private System.Windows.Forms.TextBox txtyılı;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.TextBox txtKategori;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnsil;
+        private System.Windows.Forms.ComboBox cmbdonanım;
+        private System.Windows.Forms.ComboBox cmbmodel;
+        private System.Windows.Forms.ComboBox cmbmarka;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
     }
 }

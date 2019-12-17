@@ -24,7 +24,7 @@ namespace AnaSayfa
 
             Kullanıcı = txtKullanıcı.Text;
             sifre = txtSifre.Text;
-            if (Kullanıcı == "furkan" && sifre == "123456")
+            if (Kullanıcı == "f" && sifre == "1")
             {
                 this.Hide();
                 KayıtForm frm = new KayıtForm();

@@ -31,8 +31,7 @@ namespace AnaSayfa
 
         private void cmbMarka_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
-
+         
             if (cmbMarka.SelectedIndex != 0)
             {
                 ArabaBL araba = new ArabaBL();
@@ -47,17 +46,15 @@ namespace AnaSayfa
                 cmbModel.Enabled = false;
                 cmbDonanım.Enabled = false;
             }
-
         }
-
         private void cmbModel_SelectedIndexChanged(object sender, EventArgs e)
         {
             
             if (cmbModel.SelectedIndex!=0 && cmbMarka.SelectedIndex !=0)
             {
                 ArabaBL araba = new ArabaBL();
-                cmbDonanım.DisplayMember = "Araba_Kategori";
-                cmbDonanım.ValueMember = "Araba_id";
+                cmbDonanım.DisplayMember = "Kategori_adi";
+                cmbDonanım.ValueMember = "Kategori_id";
                 cmbDonanım.DataSource = araba.AracListele((int)cmbModel.SelectedValue);
                 cmbDonanım.Enabled = true;
                 araba.Dispose();
@@ -65,9 +62,7 @@ namespace AnaSayfa
             else
             {
                 cmbDonanım.Enabled = false;
-            }
-            
-
+            }           
         }
 
         private void button1_Click(object sender, EventArgs e)

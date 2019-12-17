@@ -64,6 +64,12 @@
     <Compile Include="KayıtForm.Designer.cs">
       <DependentUpon>KayıtForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MarkaModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarkaModel.Designer.cs">
+      <DependentUpon>MarkaModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AracForm.resx">
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KayıtForm.resx">
       <DependentUpon>KayıtForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarkaModel.resx">
+      <DependentUpon>MarkaModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

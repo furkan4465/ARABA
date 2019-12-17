@@ -21,11 +21,25 @@ namespace ArabaBLL
             ((IDisposable)hlp).Dispose();
         }
 
+        public Araba kategoriid(int id)
+        {
+            SqlParameter[] p = { new SqlParameter() };
+            SqlDataReader dr = hlp.ExecuteReader("Select Kategori_id from Ozellik Where Kategori_id=@id", p);
+            Araba a = null;
+            if (dr.Read())
+            {
+
+                a.Kategori_id = Convert.ToInt32(dr["Kategori_id"].ToString());
+            }
+            dr.Close();
+
+            return a;
+        }
         public List<Ozellikler> Goruntule(int id)
         {
             List<Ozellikler> liste = new List<Ozellikler>();
             SqlParameter[] p = { new SqlParameter("@id", id) };
-            SqlDataReader dr = hlp.ExecuteReader("select Tipi,Cekis,Motor,Beygir,Tork,YTüketimi,YTürü,SonHiz,Hizlanma,Yili,Arabaid from Ozellik where Arabaid =@id" ,p);
+            SqlDataReader dr = hlp.ExecuteReader("select Tipi,Cekis,Motor,Beygir,Tork,YTüketimi,YTürü,SonHiz,Hizlanma,Yili,Kategori_id from Ozellik where Kategori_id =@id" ,p);
 
             while (dr.Read())
             {
@@ -55,12 +69,13 @@ namespace ArabaBLL
                 List<Ozellikler> lst = new List<Ozellikler>();
 
                 SqlParameter[] p = null;
-                SqlDataReader dr = hlp.ExecuteReader("select Tipi,Cekis,Motor,Beygir,Tork,YTüketimi,YTürü,SonHiz,Hizlanma,Yili,Kategori_id from Ozellik",p);
+                SqlDataReader dr = hlp.ExecuteReader("select ArabaId,Tipi,Cekis,Motor,Beygir,Tork,YTüketimi,YTürü,SonHiz,Hizlanma,Yili,Kategori_id from Ozellik",p);
 
                 while (dr.Read())
                 {
                     lst.Add(new Ozellikler
                     {
+                        ArabaId = (int)dr["ArabaId"],
                         Tipi = dr["Tipi"].ToString(),
                         Cekis = dr["Cekis"].ToString(),
                         Motor = (int)dr["motor"],
@@ -71,6 +86,7 @@ namespace ArabaBLL
                         SonHiz = (int)dr["SonHiz"],
                         Hizlanma = float.Parse(dr["Hizlanma"].ToString()),
                         Yili = (int)dr["Yili"],
+                        Kategori_id = (int)dr["Kategori_İd"]
 
                     });
                     //arb.Yakit = Convert.ToInt32(dr["Yakit"]);
@@ -94,6 +110,7 @@ namespace ArabaBLL
         {
             SqlParameter[] p = 
                 {
+                new SqlParameter("@Kategori_id",ozl.Kategori_id),
                 new SqlParameter("@Tipi", ozl.Tipi),
                 new SqlParameter("@Cekis", ozl.Cekis),
                 new SqlParameter("@Motor", ozl.Motor),
@@ -103,10 +120,9 @@ namespace ArabaBLL
                 new SqlParameter("@YTürü", ozl.YTürü),
                 new SqlParameter("@SonHiz", ozl.SonHiz),
                 new SqlParameter("@Hizlanma", ozl.Hizlanma),
-                new SqlParameter("@Yili", ozl.Yili),
-                new SqlParameter("@Kategori_id",ozl.Kategori_id)
+                new SqlParameter("@Yili", ozl.Yili)           
                 };
-            int sonuc = hlp.ExecuteNonQuery("INSERT INTO Ozellik values(@Tipi,@Cekis,@Motor,@Beygir,@Tork,@YTüketimi,@YTürü,@SonHiz,@Hizlanma,@Yili,@Kategori_id)", p);
+            int sonuc = hlp.ExecuteNonQuery("INSERT INTO Ozellik (Kategori_id,Tipi,Cekis,Motor,Beygir,Tork,YTüketimi,YTürü,SonHiz,Hizlanma,Yili) Values (@Kategori_id,@Tipi,@Cekis,@Motor,@Beygir,@Tork,@YTüketimi,@YTürü,@SonHiz,@Hizlanma,@Yili)", p);
             return sonuc > 0;
         }
         //public DataTable ArabaTablosu()
@@ -114,24 +130,7 @@ namespace ArabaBLL
         //    DataTable dt = hlp.MyOgrenciTable("select * from Ozellik");
         //    return dt;
         //}
-        public bool Guncelle(DataGridView grid)
-        {
-            try
-            {
-                if (hlp.DataUpdate("Update Ozellik set Tipi=@Tipi,Cekis=@Cekis,Motor=@Motor,Beygir=@Beygir,Tork=@Tork,YTüketimi=@YTüketimi,YTürü=@YTürü,SonHiz=@SonHiz,Hizlanma=@Hizlanma,Yili=@Yili,Kategori=id@Kategori_id", grid) == 0)
-                {
-                    return false;
-                }
-
-                hlp.DataUpdate("Update Ozellik set Tipi=@Tipi,Cekis=@Cekis,Motor=@Motor,Beygir=@Beygir,Tork=@Tork,YTüketimi=@YTüketimi,YTürü=@YTürü,SonHiz=@SonHiz,Hizlanma=@Hizlanma,Yili=@Yili,Kategori=id@Kategori_id", grid);
-                return true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+        
         public DataTable ArabaTablosu() => hlp.MyDataTable("Select * from Ozellik");
         /*public bool OzellikGuncelle(Ozellikler grid)
         {
