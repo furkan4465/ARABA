@@ -38,7 +38,12 @@ namespace ArabaBLL
             marka.Insert(0, new Araba { Kategori_adi = "Seçiniz..." });
             return marka;
         }
-        
+        public bool ArabaEkle(Araba araba)
+        {
+            SqlParameter[] p = { new SqlParameter("@Kategori_adi", araba.Kategori_adi), new SqlParameter("Ust_Kategori_id", araba.Ust_Kategori_id) };
+            return 0 < help.ExecuteNonQuery("INSERT INTO marka (Kategori_adi,Ust_Kategori_id) VALUES(@Kategori_adi,@Ust_Kategori_id)", p);
+        }
+
         public void Dispose()
         {
             ((IDisposable)help).Dispose();

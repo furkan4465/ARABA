@@ -40,6 +40,7 @@ namespace AnaSayfa
                 cmbModel.DataSource = araba.AracListele((int)cmbMarka.SelectedValue);
                 cmbModel.Enabled = true;
                 araba.Dispose();
+
             }
             else
             {

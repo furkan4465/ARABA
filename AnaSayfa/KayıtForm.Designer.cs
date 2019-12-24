@@ -53,13 +53,14 @@
             this.txthızlanma = new System.Windows.Forms.TextBox();
             this.txtyılı = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnsil = new System.Windows.Forms.Button();
             this.cmbdonanım = new System.Windows.Forms.ComboBox();
             this.cmbmodel = new System.Windows.Forms.ComboBox();
             this.cmbmarka = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtbaskaform = new System.Windows.Forms.Button();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dgw1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -261,15 +262,6 @@
             this.txtyılı.Size = new System.Drawing.Size(100, 20);
             this.txtyılı.TabIndex = 31;
             // 
-            // btnsil
-            // 
-            this.btnsil.Location = new System.Drawing.Point(424, 182);
-            this.btnsil.Name = "btnsil";
-            this.btnsil.Size = new System.Drawing.Size(75, 23);
-            this.btnsil.TabIndex = 34;
-            this.btnsil.Text = "Sil";
-            this.btnsil.UseVisualStyleBackColor = true;
-            // 
             // cmbdonanım
             // 
             this.cmbdonanım.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -328,18 +320,28 @@
             this.label4.TabIndex = 35;
             this.label4.Text = "Marka";
             // 
+            // txtbaskaform
+            // 
+            this.txtbaskaform.Location = new System.Drawing.Point(545, 296);
+            this.txtbaskaform.Name = "txtbaskaform";
+            this.txtbaskaform.Size = new System.Drawing.Size(136, 23);
+            this.txtbaskaform.TabIndex = 41;
+            this.txtbaskaform.Text = "Marka Model Ekleme";
+            this.txtbaskaform.UseVisualStyleBackColor = true;
+            this.txtbaskaform.Click += new System.EventHandler(this.txtbaskaform_Click);
+            // 
             // KayıtForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtbaskaform);
             this.Controls.Add(this.cmbdonanım);
             this.Controls.Add(this.cmbmodel);
             this.Controls.Add(this.cmbmarka);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnsil);
             this.Controls.Add(this.txtyılı);
             this.Controls.Add(this.txthızlanma);
             this.Controls.Add(this.txtsonhız);
@@ -399,12 +401,13 @@
         private System.Windows.Forms.TextBox txthızlanma;
         private System.Windows.Forms.TextBox txtyılı;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button btnsil;
         private System.Windows.Forms.ComboBox cmbdonanım;
         private System.Windows.Forms.ComboBox cmbmodel;
         private System.Windows.Forms.ComboBox cmbmarka;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button txtbaskaform;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }

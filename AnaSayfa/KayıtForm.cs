@@ -25,22 +25,49 @@ namespace AnaSayfa
             InitializeComponent();
         }
 
-        
+        DataTable dt = null; 
       
         private void button1_Click_1(object sender, EventArgs e)
         {
 
             OzelliklerBL ozbl = new OzelliklerBL();
-            dgw1.DataSource = ozbl.AracBilgileri();
+            dt=ozbl.ArabaTablosu();
+            dgw1.DataSource = dt;
             ozbl.Dispose();
-            // OzelliklerBL vericek = new OzelliklerBL();
-            // dgw1.DataSource = vericek.Goruntule1();
+            
         }
 
         
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            
+            foreach (DataRow item in dt.Rows) // data table içinde dönmemiz için 
+            {
+                if (item.RowState==DataRowState.Deleted) // data table versiyon orjinal olsunki işlemleri fark ede bilsin 
+                {
+                    //id yollasil methodu 
+                   // OzelliklerBL.AracSil((int)item["araba_id", DataRowVersion.Original]);
+                }
+                else
+                {
+                    
+                    switch (item.RowState)
+                    {
+                        
+
+                        case DataRowState.Added://ekle methodunu çağır
+                            Ozellikler ozl = new Ozellikler();
+                           // OzelliklerBL.OzellikKaydet(ozl);
+                            break;
+                      //item ile
+                        case DataRowState.Modified://burada idsini al güncelle methodunu çağır
+
+                           // OzelliklerBL.OzellikGuncelle();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
 
         }
         private void dgw1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -117,21 +144,25 @@ namespace AnaSayfa
 
         private void cmbMarka_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbmarka.SelectedIndex != 0 )
+            if (cmbmarka.SelectedIndex != 0 ) //0 sa seçiniz olmalı id olmadığından boş döner 
             {
                 ArabaBL araba = new ArabaBL();
                 cmbmodel.DisplayMember = "Kategori_adi";
                 cmbmodel.ValueMember = "Kategori_id";
-                cmbmodel.DataSource = araba.AracListele((int)cmbmarka.SelectedValue);
+                cmbmodel.DataSource = araba.AracListele((int)cmbmarka.SelectedValue); // object dönüyor ondan intine ihtiyaç dönüyor methodun id ye ihtiyacı var
                 cmbmodel.Enabled = true;
                 araba.Dispose();
             }
             else
             {
-                cmbmodel.Enabled = false;
+                cmbmodel.Enabled = false; // sıfırı seçti yeni marka seçsin diye
             }
         }
 
-        
+        private void txtbaskaform_Click(object sender, EventArgs e)
+        {
+            MarkaModel frm1 = new MarkaModel();
+            frm1.Show();
+        }
     }
 }
