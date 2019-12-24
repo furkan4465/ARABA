@@ -40,28 +40,44 @@ namespace AnaSayfa
         
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            foreach (DataRow item in dt.Rows) // data table içinde dönmemiz için 
+            OzelliklerBL ozellikbl;
+            foreach (DataRow item in dt.Rows) // data table içinde dönmemiz için                    
             {
+                ozellikbl = new OzelliklerBL();
                 if (item.RowState==DataRowState.Deleted) // data table versiyon orjinal olsunki işlemleri fark ede bilsin 
                 {
                     //id yollasil methodu 
-                   // OzelliklerBL.AracSil((int)item["araba_id", DataRowVersion.Original]);
+                    ozellikbl.AracSil((int)item["araba_id", DataRowVersion.Original]);
                 }
                 else
                 {
-                    
+                    Ozellikler ozl = new Ozellikler();
+
+                    ozl.Tipi = item["Tipi"].ToString();
+                    ozl.Cekis = item["Cekis"].ToString();
+                    ozl.Motor = (int)item["motor"];
+                    ozl.Beygir = (int)item["Beygir"];
+                    ozl.Tork = (int)item["Tork"];
+                    ozl.YTüketimi = float.Parse(item["YTüketimi"].ToString());
+                    ozl.YTürü = item["YTürü"].ToString();
+                    ozl.SonHiz = (int)item["SonHiz"];
+                    ozl.Hizlanma = float.Parse(item["Hizlanma"].ToString());
+                    ozl.Yili = (int)item["Yili"];
+                    ozl.Kategori_id = (int)item["Kategori_İd"];
                     switch (item.RowState)
                     {
                         
 
                         case DataRowState.Added://ekle methodunu çağır
-                            Ozellikler ozl = new Ozellikler();
-                           // OzelliklerBL.OzellikKaydet(ozl);
+                            
+                            
+                            ozellikbl.OzellikKaydet(ozl);
                             break;
                       //item ile
                         case DataRowState.Modified://burada idsini al güncelle methodunu çağır
 
-                           // OzelliklerBL.OzellikGuncelle();
+                            ozl.ArabaId = (int)item["ArabaId"];
+                            ozellikbl.OzellikGuncelle(ozl); 
                             break;
                         default:
                             break;
